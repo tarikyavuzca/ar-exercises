@@ -10,3 +10,15 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
+puts "Enter a store name"
+print "> "
+store_name = gets.chomp
+
+@my_store = Store.create(name: store_name)
+
+# Display validation errors, if any
+if (@my_store.errors.any?)
+  @my_store.errors.full_messages.each do |msg|
+    puts "Error: #{msg}"
+  end
+end
